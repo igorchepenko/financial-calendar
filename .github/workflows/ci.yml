@@ -19,7 +19,7 @@ jobs:
 
   checks:
     name: Линтер, типы, тесты
-    runs-on: macos-14
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
