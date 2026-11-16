@@ -18,8 +18,8 @@ jobs:
       - run: node scripts/check-r10.mjs
 
   checks:
-    name: Линтер, типы, тесты
-    runs-on: macos-latest
+    name: Линтер, типы, тесты (ядро и TS)
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -35,5 +35,23 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: cargo fmt --all -- --check
+      - run: cargo clippy -p fincal-core --all-targets -- -D warnings
+      - run: cargo test -p fincal-core
+
+  tauri:
+    name: Сборка Tauri-оболочки (macOS)
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - uses: Swatinem/rust-cache@v2
+      - run: npm ci
       - run: cargo clippy --workspace --all-targets -- -D warnings
       - run: cargo test --workspace
