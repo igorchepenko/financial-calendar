@@ -1,0 +1,8 @@
+[package]
+name = "fincal-core"
+version = "0.1.0"
+description = "Расчётное ядро Финансового календаря (R2): без зависимостей от UI и Tauri"
+edition = "2024"
+publish = false
+
+[dependencies]

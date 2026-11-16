@@ -1,0 +1,32 @@
+# Данные (R10): репозиторий публичный, БД и бэкапы не коммитим
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+*-wal
+*-shm
+*.bak
+Backups/
+backups/
+*.dmg
+/data/
+/.local-data/
+.fincal-data/
+
+# Сборка
+node_modules
+dist
+dist-ssr
+target/
+src-tauri/gen/
+*.log
+*.local
+
+# Окружение / редакторы / локальные инструменты
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
+.agents/
+.mcp.json
